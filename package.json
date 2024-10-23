@@ -1,0 +1,14 @@
+{
+  "name": "s15",
+  "version": "1.0.0",
+  "description": "S15 Mapty App OOP Geolocation\r 001 Section Intro\r 002 Section Roadmap\r 003 Project Overview\r 004 How to Plan a Web Project\r 005 Using the Geolocation API",
+  "main": "script.js",
+  "scripts": {
+    "s": "live-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}
