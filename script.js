@@ -16,9 +16,9 @@ if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
     function (position) {
       const { latitude, longitude } = position.coords;
-      console.log(
-        `https://www.google.com/maps/place/@${latitude},${longitude}`,
-      );
+      // console.log(
+      //   `https://www.google.com/maps/place/@${latitude},${longitude}`,
+      // );
 
       // Current location marker
       const coords = [latitude, longitude];
@@ -33,9 +33,9 @@ if (navigator.geolocation) {
 
       L.marker(coords).addTo(map).bindPopup('My Current Location').openPopup();
 
+      // Evemt Handlers
       map.on('click', function (mapEvent) {
         const { lat, lng } = mapEvent.latlng;
-
         L.marker([lat, lng])
           .addTo(map)
           .bindPopup(
@@ -44,6 +44,7 @@ if (navigator.geolocation) {
               minWidth: 100,
               autoClose: false,
               closeOnClick: false,
+              className: 'running-popup',
             }),
           )
           .setPopupContent('Workout')
