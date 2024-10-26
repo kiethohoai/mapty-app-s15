@@ -7,3 +7,4 @@ S15 Mapty App OOP Geolocation
 006 Displaying a Map Using Leaflet Library
 007 Displaying a Map Marker
 007 Displaying a Map Marker v2
+007 Displaying a Map Marker v3

@@ -14,11 +14,12 @@ const inputElevation = document.querySelector('.form__input--elevation');
 //todo Geolocation API
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
+    // Success to get current location
     function (position) {
       const { latitude, longitude } = position.coords;
-      // console.log(
-      //   `https://www.google.com/maps/place/@${latitude},${longitude}`,
-      // );
+
+      // console.log(`🚀  latitude, longitude =>`, latitude, longitude);
+      // console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
 
       // Current location marker
       const coords = [latitude, longitude];
@@ -31,7 +32,7 @@ if (navigator.geolocation) {
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
-      L.marker(coords).addTo(map).bindPopup('My Current Location').openPopup();
+      L.marker(coords).addTo(map).bindPopup('My Location').openPopup();
 
       // Evemt Handlers
       map.on('click', function (mapEvent) {
@@ -51,6 +52,7 @@ if (navigator.geolocation) {
           .openPopup();
       });
     },
+    // Fail to get current position
     function () {
       alert(`Could not get your current position!`);
     },
