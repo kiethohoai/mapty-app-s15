@@ -88,10 +88,14 @@ class App {
   #map;
   #mapEvent;
   #workouts = [];
-  #mapZoomLevel = 13;
+  #mapZoomLevel = 15;
 
   constructor() {
+    // Get user position
     this._getPosition();
+
+    // Get data from LocalStorage
+    this._getLocalStorage();
 
     // Handle Form Submit
     form.addEventListener('submit', this._newWorkout.bind(this));
@@ -99,6 +103,7 @@ class App {
     // Handle Select on InputType
     inputType.addEventListener('change', this._toggleElevationField);
 
+    // Move to marker on Click
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
   }
 
@@ -131,6 +136,11 @@ class App {
 
     // Handle Click On Map
     this.#map.on('click', this._showForm.bind(this));
+
+    // Render workouts on the List & masker
+    this.#workouts.forEach((work) => {
+      this._renderWorkoutMasker(work);
+    });
   }
 
   _showForm(mapE) {
@@ -219,7 +229,8 @@ class App {
     // Hide form & Clear input fields
     this._hideForm();
 
-    // Set default state
+    // Set localStorage to all workouts
+    this._setLocalStorage();
   }
 
   _renderWorkoutMasker(workout) {
@@ -302,14 +313,39 @@ class App {
       (work) => work.id === workoutEl.dataset.id,
     );
 
-    this.#map.setView(workout.coords, this.#mapZoomLevel, {
+    this.#map.setView(workout.coords, 15, {
       animate: true,
       pan: {
         duration: 1,
       },
     });
 
-    workout.click();
+    // workout.click();
+  }
+
+  _setLocalStorage() {
+    localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+  }
+
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('workouts'));
+
+    // Check if data exist
+    if (!data) return;
+
+    // Set localStorage data to App state
+    this.#workouts = data;
+
+    // Render workouts on the List & masker
+    this.#workouts.forEach((work) => {
+      this._renderWorkout(work);
+      // this._renderWorkoutMasker(work);
+    });
+  }
+
+  reset() {
+    localStorage.removeItem('workouts');
+    location.reload();
   }
 }
 

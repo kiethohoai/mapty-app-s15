@@ -15,3 +15,4 @@ S15 Mapty App OOP Geolocation
 012 Creating a New Workout
 013 Rendering Workouts
 014 Move to Marker On Click
+015 Working with localStorage
