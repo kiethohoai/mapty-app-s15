@@ -11,3 +11,4 @@ S15 Mapty App OOP Geolocation
 008 Rendering Workout Input Form
 009 Project Architecture
 010 Refactoring for Project Architecture
+011 Managing Workout Data Creating Classes
