@@ -17,3 +17,6 @@ S15 Mapty App OOP Geolocation
 014 Move to Marker On Click
 015 Working with localStorage
 016 Final Considerations
+
+16 Asynchronous JavaScript Promises AsyncAwait
+003 Asynchronous JavaScript, AJAX and APIs
