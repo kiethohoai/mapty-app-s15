@@ -10,3 +10,4 @@ S15 Mapty App OOP Geolocation
 007 Displaying a Map Marker v3
 008 Rendering Workout Input Form
 009 Project Architecture
+010 Refactoring for Project Architecture
